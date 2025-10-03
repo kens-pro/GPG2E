@@ -372,3 +372,75 @@ body {
         font-size: 1.7rem;
     }
 }
+
+/* --- 2️⃣ 商品説明ブロックの画像対応スタイル（追加） --- */
+.product-card {
+    /* 既存のtext-align:center; を削除またはコメントアウト */
+    /* text-align: center; */
+}
+
+.product-title {
+    text-align: center; /* タイトルだけは中央揃えを維持 */
+}
+
+.product-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-image-container {
+    flex: 0 0 45%; /* コンテナの幅を45%に固定 */
+    max-width: 45%;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* 画像の角を少し丸める */
+    box-shadow: 0 4px 15px var(--shadow);
+    display: block;
+}
+
+.product-details-container {
+    flex: 1;
+    text-align: left; /* テキストを左揃えに */
+}
+
+/* 価格比較のレイアウトを調整 */
+.price-comparison {
+    justify-content: flex-start; /* 中央揃えから左揃えに変更 */
+}
+
+/* レスポンシブ対応：768px以下で縦積みにする */
+@media (max-width: 768px) {
+    .product-content-wrapper {
+        flex-direction: column; /* 縦並びに変更 */
+        gap: 25px;
+    }
+
+    .product-image-container {
+        flex-basis: auto; /* 幅の固定を解除 */
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .product-details-container {
+        text-align: center; /* スマホではテキストを中央揃えに戻す */
+    }
+
+    .product-description {
+        text-align: left; /* ただし説明文は読みやすいように左揃え */
+    }
+
+    .price-comparison {
+        justify-content: center; /* スマホでは価格を中央揃えに戻す */
+        flex-direction: row; /* 横並びに戻す */
+    }
+    
+    /* 既存のスマホ用スタイルで↓が適用されているので矢印の向きを元に戻す */
+    .price-comparison .arrow {
+        transform: rotate(0deg);
+    }
+}
